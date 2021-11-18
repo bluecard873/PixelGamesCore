@@ -1,0 +1,12 @@
+name: PixelGamesCore
+version: 1.0.0
+author: bluecard
+description: Core of PixelGames Server
+main: pg.game.core.Main
+commands:
+  pgcoreinfo:
+    description: Show Information of PixelGamesCore
+    usage: /pgcoreinfo
+  lobby:
+    description: go to lobby
+    usage: /lobby

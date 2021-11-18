@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PixelGamesCore:jar">
+    <output-path>$USER_HOME$/Desktop/PixelGames/Plugins</output-path>
+    <root id="archive" name="PixelGamesCore.jar">
+      <element id="module-output" name="PixelGamesCore" />
+    </root>
+  </artifact>
+</component>
