@@ -33,16 +33,12 @@ public class Main extends JavaPlugin {
         connection = dataSource.getConnection();
     }
     public void setIsLobby(Player player, boolean value) throws SQLException{
-
-        PreparedStatement stat = connection.prepareStatement("UPDATE islobby SET value = ? WHERE Player_UUID = ?");
-        stat.setString(1, player.getUniqueId().toString());
-        stat.setBoolean(2, value);
-        stat.executeQuery();
+        PreparedStatement stat = connection.prepareStatement(String.format("UPDATE islobby SET value = {0} WHERE Player_UUID = {1}", value, player.getUniqueId().toString()));
+        stat.executeUpdate();
     }
     public boolean getIsLobby(Player player) throws SQLException{
         boolean value = false;
-        PreparedStatement stat = connection.prepareStatement("SELECT islobby FROM pixelgames WHERE Player_UUID = ?");
-        stat.setString(1, player.getUniqueId().toString());
+        PreparedStatement stat = connection.prepareStatement(String.format("SELECT islobby FROM pixelgames WHERE Player_UUID = {0}", player.getUniqueId().toString()));
         ResultSet result = stat.executeQuery();
         while(result.next()) {
             value = result.getBoolean("value");
