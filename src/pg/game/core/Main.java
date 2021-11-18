@@ -45,4 +45,5 @@ public class Main extends JavaPlugin {
         }
         return value;
     }
+    public Data datainstance = new Data(this);
 }
