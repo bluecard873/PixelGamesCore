@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
         PreparedStatement stat = connection.prepareStatement("UPDATE islobby SET value = ? WHERE Player_UUID = ?");
         stat.setString(1, player.getUniqueId().toString());
         stat.setBoolean(2, value);
-        stat.execute();
+        stat.executeQuery();
     }
     public boolean getIsLobby(Player player) throws SQLException{
         boolean value = false;
