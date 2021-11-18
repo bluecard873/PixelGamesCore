@@ -1,5 +1,4 @@
 package pg.game.core;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,7 +19,13 @@ public class LobbyCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "mw move " + player.getName() + " lobby");
+            plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "mv tp " + player.getName() + " lobby");
+            try {
+                plugin.setIsLobby(player, true);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         else if (commandSender instanceof ConsoleCommandSender) {
             ConsoleCommandSender console = (ConsoleCommandSender) commandSender;

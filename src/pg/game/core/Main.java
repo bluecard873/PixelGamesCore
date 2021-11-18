@@ -21,7 +21,6 @@ public class Main extends JavaPlugin {
     public void onDisable() {
         getLogger().info("PixelGames Core is now Disabled.");
     }
-    public Data datainstance = new Data();
     public void connect() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         MysqlDataSource dataSource = new MysqlDataSource();
