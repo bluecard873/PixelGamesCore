@@ -17,19 +17,19 @@ public class Data implements Serializable {
     public Map<String, Boolean> isLobby = new HashMap<>();
 
     public void Save() { //saveCustomYml(customConfig, customYml);
-        File DataFile = new File(plugin.getDataFolder()+"/data.yml");
+        File DataFile = new File(plugin.getDataFolder(), "/data.yml");
         FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
         try {
-            customConfig.set(plugin.getDataFolder()+"/data.yml", this);
+            customConfig.set(DataFile.getPath(), this);
             customConfig.save(DataFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public Data getValue() {
-        File DataFile = new File(plugin.getDataFolder()+"/data.yml");
+        File DataFile = new File(plugin.getDataFolder(), "/data.yml");
         FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
-        return (Data)customConfig.get(plugin.getDataFolder()+"/data.yml");
+        return (Data)customConfig.get(DataFile.getPath());
     }
     // get : customConfig.getString("path");
 }
