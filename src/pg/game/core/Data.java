@@ -8,14 +8,13 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class Data implements Serializable {
     private transient Main plugin;
     public Data(Main plugin) {
         this.plugin = plugin;
     }
-    public Map<UUID, Boolean> isLobby = new HashMap<>();
+    public Map<String, Boolean> isLobby = new HashMap<>();
 
     public void Save() { //saveCustomYml(customConfig, customYml);
         File DataFile = new File(plugin.getDataFolder()+"/data.yml");
