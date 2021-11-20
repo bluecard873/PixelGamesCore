@@ -15,9 +15,9 @@ public class OnFoodLevelChangeEvent implements Listener {
     }
     @EventHandler
     public void onFoodLevelChange (FoodLevelChangeEvent event) {
-        UUID uuid = event.getEntity().getUniqueId();
         if (event.getEntityType () != EntityType.PLAYER) return;
-        if (plugin.datainstance.isLobby.get(uuid)) event.setCancelled (true);
+        UUID uuid = event.getEntity().getUniqueId();
+        if (plugin.datainstance.isLobby.get(uuid.toString())) event.setCancelled (true);
 
     }
 }
