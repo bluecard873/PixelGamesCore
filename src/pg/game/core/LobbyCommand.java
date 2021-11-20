@@ -1,4 +1,6 @@
 package pg.game.core;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +21,8 @@ public class LobbyCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "mv tp " + player.getName() + " lobby");
+            Location loc = new Location(Bukkit.getWorld("myWorld"), 23, 6, 4);
+            player.teleport(loc);
             plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
             plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
             plugin.datainstance.Save();
