@@ -21,10 +21,8 @@ public class LobbyCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             Location loc = new Location(Bukkit.getWorld("lobby"), 23, 6, 4);
             player.teleport(loc);
-            if (plugin.datainstance.getValue().isLobby != null) {
-                plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
-            }
             try {
+                plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
                 plugin.datainstance.isLobby.put(player.getUniqueId(), true);
             }
             catch (NullPointerException e) {
