@@ -29,6 +29,7 @@ public class Data implements Serializable {
     public Data getValue() {
         File DataFile = new File(plugin.getDataFolder()+"/data.yml");
         FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
+        plugin.getLogger().info("data getted. data : " + customConfig.get(plugin.getDataFolder()+"/data.yml"));
         return (Data)customConfig.get(plugin.getDataFolder()+"/data.yml");
     }
     // get : customConfig.getString("path");
