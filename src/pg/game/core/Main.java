@@ -8,7 +8,6 @@ public class Main extends JavaPlugin {
         this.getCommand("pgcoreinfo").setExecutor(new InfoCommand());
         this.getCommand("lobby").setExecutor(new LobbyCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerJoinEvent(this), this);
-        datainstance = datainstance.getValue();
     }
     @Override
     public void onDisable() {
