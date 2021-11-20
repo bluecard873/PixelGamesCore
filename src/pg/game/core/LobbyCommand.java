@@ -28,8 +28,7 @@ public class LobbyCommand implements CommandExecutor {
             plugin.datainstance.Save();
         }
         else if (commandSender instanceof ConsoleCommandSender) {
-            ConsoleCommandSender console = (ConsoleCommandSender) commandSender;
-            console.sendMessage("console cannot to go lobby");
+            plugin.getLogger().info("console cannot to go lobby");
         }
         return true;
     }
