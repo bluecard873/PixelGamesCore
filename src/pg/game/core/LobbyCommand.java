@@ -19,11 +19,14 @@ public class LobbyCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            Location loc = new Location(Bukkit.getWorld("lobby"), 23, 6, 4);
-            player.teleport(loc);
-            plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
-            plugin.datainstance.isLobby.put(player.getUniqueId(), true);
-            plugin.datainstance.Save();
+            if (player.getUniqueId() != null) {
+                Location loc = new Location(Bukkit.getWorld("lobby"), 23, 6, 4);
+                player.teleport(loc);
+
+                plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
+                plugin.datainstance.isLobby.put(player.getUniqueId(), true);
+                plugin.datainstance.Save();
+            }
         }
         else if (commandSender instanceof ConsoleCommandSender) {
             plugin.getLogger().info("console cannot to go lobby");
