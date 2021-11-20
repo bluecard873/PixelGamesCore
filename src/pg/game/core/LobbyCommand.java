@@ -21,7 +21,7 @@ public class LobbyCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            Location loc = new Location(Bukkit.getWorld("myWorld"), 23, 6, 4);
+            Location loc = new Location(Bukkit.getWorld("lobby"), 23, 6, 4);
             player.teleport(loc);
             plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
             plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
