@@ -6,6 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 
+import java.util.UUID;
+
 public class OnFoodLevelChangeEvent implements Listener {
     Main plugin;
     public OnFoodLevelChangeEvent(Main plugin) {
@@ -13,8 +15,9 @@ public class OnFoodLevelChangeEvent implements Listener {
     }
     @EventHandler
     public void onFoodLevelChange (FoodLevelChangeEvent event) {
+        UUID uuid = event.getEntity().getUniqueId();
         if (event.getEntityType () != EntityType.PLAYER) return;
-        if (plugin.datainstance.isLobby.get(event.getEntity().getUniqueId().toString())) event.setCancelled (true);
+        if (plugin.datainstance.isLobby.get(uuid)) event.setCancelled (true);
 
     }
 }

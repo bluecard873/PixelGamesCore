@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class LobbyCommand implements CommandExecutor {
 
     private Main plugin;
@@ -19,6 +21,7 @@ public class LobbyCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
+            UUID uuid = player.getUniqueId();
             Location loc = new Location(Bukkit.getWorld("lobby"), 23, 6, 4);
             player.teleport(loc);
             try {
@@ -27,7 +30,7 @@ public class LobbyCommand implements CommandExecutor {
             catch (NullPointerException e) {
                 // Do Nothing
             }
-            plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
+            plugin.datainstance.isLobby.put(uuid.toString(), true);
             plugin.datainstance.Save();
         }
         else if (commandSender instanceof ConsoleCommandSender) {
