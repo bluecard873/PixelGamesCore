@@ -23,11 +23,11 @@ public class LobbyCommand implements CommandExecutor {
             player.teleport(loc);
             try {
                 plugin.datainstance.isLobby = plugin.datainstance.getValue().isLobby;
-                plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
             }
             catch (NullPointerException e) {
                 // Do Nothing
             }
+            plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
             plugin.datainstance.Save();
         }
         else if (commandSender instanceof ConsoleCommandSender) {
