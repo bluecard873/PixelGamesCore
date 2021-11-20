@@ -20,12 +20,8 @@ public class LobbyCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "mv tp " + player.getName() + " lobby");
-            try {
-                plugin.setIsLobby(player, true);
-            }
-            catch (SQLException e) {
-                e.printStackTrace();
-            }
+            plugin.datainstance.isLobby.put(player.getUniqueId().toString(), true);
+            plugin.datainstance.Save();
         }
         else if (commandSender instanceof ConsoleCommandSender) {
             ConsoleCommandSender console = (ConsoleCommandSender) commandSender;
