@@ -15,9 +15,10 @@ public class Data implements Serializable {
         this.plugin = plugin;
     }
     public Map<String, Boolean> isLobby = new HashMap<>();
-    transient File DataFile = new File(plugin.getDataFolder()+"/data.yml");
-    transient FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
+
     public void Save() { //saveCustomYml(customConfig, customYml);
+        File DataFile = new File(plugin.getDataFolder()+"/data.yml");
+        FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
         try {
             customConfig.set(plugin.getDataFolder()+"/data.yml", this);
             customConfig.save(DataFile);
@@ -26,6 +27,8 @@ public class Data implements Serializable {
         }
     }
     public Data getValue() {
+        File DataFile = new File(plugin.getDataFolder()+"/data.yml");
+        FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
         return (Data)customConfig.get(plugin.getDataFolder()+"/data.yml");
     }
     // get : customConfig.getString("path");
