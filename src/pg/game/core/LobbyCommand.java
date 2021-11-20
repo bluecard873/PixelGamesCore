@@ -26,7 +26,7 @@ public class LobbyCommand implements CommandExecutor {
                 plugin.datainstance.isLobby.put(player.getUniqueId(), true);
             }
             catch (NullPointerException e) {
-                e.printStackTrace();
+                // Do Nothing
             }
             plugin.datainstance.Save();
         }
