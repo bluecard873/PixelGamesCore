@@ -2,6 +2,7 @@ package pg.game.core;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,8 +15,9 @@ public class Data implements Serializable {
     public Data(Main plugin) {
         this.plugin = plugin;
     }
-    public Map<String, Boolean> isLobby = new HashMap<>();
-
+    public boolean GetIsLobby(Player player) {
+        return player.getLocation().getWorld().getName() == "lobby";
+    }
     public void Save() { //saveCustomYml(customConfig, customYml);
         File DataFile = new File(plugin.getDataFolder(), "/data.yml");
         FileConfiguration customConfig = YamlConfiguration.loadConfiguration(DataFile);
