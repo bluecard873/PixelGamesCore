@@ -7,9 +7,10 @@ public class Main extends JavaPlugin {
         getLogger().info("PixelGames Core is now Enabled.");
         this.getCommand("pgcoreinfo").setExecutor(new InfoCommand());
         this.getCommand("lobby").setExecutor(new LobbyCommand(this));
-        getServer().getPluginManager().registerEvents(new PlayerJoinEvent(this), this);
-        getServer().getPluginManager().registerEvents(new OnFoodLevelChangeEvent(this), this);
         this.getCommand("fly").setExecutor(new FlyCommand(this));
+        getServer().getPluginManager().registerEvents(new OnPlayerJoinEvent(), this);
+        getServer().getPluginManager().registerEvents(new OnFoodLevelChangeEvent(), this);
+        getServer().getPluginManager().registerEvents(new OnEntityDamageEvent(), this);
     }
     @Override
     public void onDisable() {
