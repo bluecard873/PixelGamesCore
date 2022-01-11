@@ -24,11 +24,22 @@ public class LobbyCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             Location loc = new Location(Bukkit.getWorld("lobby"), 15, 6, -4);
             player.teleport(loc);
-            player.setGameMode(GameMode.ADVENTURE);
+            Thread thread = new LobbyThread();
+            LobbyThread.player = player;
+            thread.start();
+
         }
         else if (commandSender instanceof ConsoleCommandSender) {
             plugin.getLogger().info("console cannot to go lobby");
         }
         return true;
     }
+}
+class LobbyThread extends Thread {
+    @Override
+    public void run() {
+        while (!Data.GetIsLobby(player)){}
+        player.setGameMode(GameMode.ADVENTURE);
+    }
+    public static Player player;
 }
