@@ -10,3 +10,6 @@ commands:
   lobby:
     description: go to lobby
     usage: /lobby
+  fly:
+    description: toogle flight
+    usage: /fly

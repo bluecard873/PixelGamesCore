@@ -15,6 +15,5 @@ public class OnFoodLevelChangeEvent implements Listener {
     public void onFoodLevelChange (FoodLevelChangeEvent event) {
         if (event.getEntityType () != EntityType.PLAYER) return;
         if (Data.GetIsLobby((Player)event.getEntity())) event.setCancelled (true);
-
     }
 }
