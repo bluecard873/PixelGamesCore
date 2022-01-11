@@ -1,5 +1,6 @@
 package pg.game.core;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,6 +24,7 @@ public class LobbyCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             Location loc = new Location(Bukkit.getWorld("lobby"), 15, 6, -4);
             player.teleport(loc);
+            player.setGameMode(GameMode.ADVENTURE);
         }
         else if (commandSender instanceof ConsoleCommandSender) {
             plugin.getLogger().info("console cannot to go lobby");
