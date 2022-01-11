@@ -15,8 +15,8 @@ public class Data implements Serializable {
     public Data(Main plugin) {
         this.plugin = plugin;
     }
-    public boolean GetIsLobby(Player player) {
-        return player.getLocation().getWorld().getName() == "lobby";
+    public static boolean GetIsLobby(Player player) {
+        return player.getLocation().getWorld().getName().equals("lobby");
     }
     public void Save() { //saveCustomYml(customConfig, customYml);
         File DataFile = new File(plugin.getDataFolder(), "/data.yml");
